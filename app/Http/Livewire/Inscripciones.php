@@ -7,11 +7,12 @@ use App\Models\Inscripcion;
 use App\Models\Persona;
 use App\Models\Temporada;
 use App\Models\Categoria;
-
-
+use Livewire\WithPagination;
 
 class Inscripciones extends Component
 {
+
+    use WithPagination;
     public $textoBuscar;
     
     public $jugadores=[];
@@ -33,8 +34,11 @@ class Inscripciones extends Component
         $this->categorias = Categoria::all();
         $this->temporadas = Temporada::all();
 
+        // return view('livewire.inscripciones', [
+        //     'inscripciones' => Inscripcion::where("nombre", "like", "%".$this->textoBuscar."%" )->paginate(5)
+        // ]);
         return view('livewire.inscripciones', [
-            'inscripciones' => Inscripcion::where("nombre", "like", "%".$this->textoBuscar."%" )->paginate(5)
+            'inscripciones' => Inscripcion::paginate(5)
         ]);
     }
 

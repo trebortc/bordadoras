@@ -6,36 +6,51 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="/imagen/LOGO.jpg"  class="block h-9 w-auto" />
+                        <img src="/imagen/LOGO.png"  class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('usuarios') }}" :active="request()->routeIs('usuarios')">
-                        {{ __('Usuarios') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('jugadores') }}" :active="request()->routeIs('jugadores')">
-                        {{ __('Jugadores') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('temporadas') }}" :active="request()->routeIs('temporadas')">
-                        {{ __('Temporadas') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('categorias') }}" :active="request()->routeIs('categorias')">
-                        {{ __('Categorias') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('inscripciones') }}" :active="request()->routeIs('inscripciones')">
-                        {{ __('Inscripciones') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('asistencias') }}" :active="request()->routeIs('asistencias')">
-                        {{ __('Asistencia') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('pagos') }}" :active="request()->routeIs('pagos')">
-                        {{ __('Pagos') }}
-                    </x-jet-nav-link>                                                       
+                    @can('usuarios')
+                        <x-jet-nav-link href="{{ route('usuarios') }}" :active="request()->routeIs('usuarios')">
+                            {{ __('Usuarios') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('jugadores')
+                        <x-jet-nav-link href="{{ route('jugadores') }}" :active="request()->routeIs('jugadores')">
+                            {{ __('Jugadores') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('jugadores')
+                        <x-jet-nav-link href="{{ route('temporadas') }}" :active="request()->routeIs('temporadas')">
+                            {{ __('Temporadas') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('categorias')
+                        <x-jet-nav-link href="{{ route('categorias') }}" :active="request()->routeIs('categorias')">
+                            {{ __('Categorias') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('inscripciones')
+                        <x-jet-nav-link href="{{ route('inscripciones') }}" :active="request()->routeIs('inscripciones')">
+                            {{ __('Inscripciones') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('asistencia')
+                        <x-jet-nav-link href="{{ route('asistencias') }}" :active="request()->routeIs('asistencias')">
+                            {{ __('Asistencia') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('pagos')
+                        <x-jet-nav-link href="{{ route('pagos') }}" :active="request()->routeIs('pagos')">
+                            {{ __('Pagos') }}
+                        </x-jet-nav-link>
+                    @endcan                                                   
                 </div>
             </div>
 

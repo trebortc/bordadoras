@@ -39,6 +39,11 @@ class Jugadores extends Component
             'jugadores' => Persona::where("nombre", "like", "%".$this->textoBuscar."%" )->paginate(5)
         ]);
     }
+
+    public function updatingTextoBuscar()
+    {
+        $this->resetPage();
+    }
       
     public function crear()
     {

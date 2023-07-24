@@ -40,6 +40,11 @@ class Pagos extends Component
             'pagos' => Pago::where("nombre", "like", "%".$this->textoBuscar."%" )->paginate(5)
         ]);
     }
+
+    public function updatingTextoBuscar()
+    {
+        $this->resetPage();
+    }
       
     public function crear()
     {

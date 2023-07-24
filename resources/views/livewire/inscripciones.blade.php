@@ -66,7 +66,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $inscripciones->links() }}
+                
             </div>
         </div>
     </div>

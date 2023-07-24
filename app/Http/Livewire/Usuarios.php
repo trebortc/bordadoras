@@ -28,10 +28,16 @@ class Usuarios extends Component
     public function render()
     {
         $this->roles = Role::all();
-        $this->buscar = "%".$this->textoBuscar."%";
+        // $this->buscar = "%".$this->textoBuscar."%";
         return view('livewire.usuarios', [
-            'usuarios' => User::where("name", "like", "%".$this->textoBuscar."%" )->paginate(5)
+            'usuarios' => User::where('name', 'like', '%'.$this->textoBuscar.'%' )
+                                ->orWhere('email', 'like', '%'.$this->textoBuscar.'%')->paginate(5)
         ]);
+    }
+
+    public function updatingTextoBuscar()
+    {
+        $this->resetPage();
     }
       
     public function crear()
