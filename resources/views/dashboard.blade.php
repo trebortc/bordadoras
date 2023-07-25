@@ -9,8 +9,8 @@
         <div class="max-w-screen-2x1 mx-auto sm:px-50 lg:px-1">
             <div class="max-w-6xl mx-auto sm:px-4 lg:px-2">
                 <p style="text-align:center">
-                <img src="https://pymstatic.com/8535/conversions/frases-futbol-wide.jpg">
-                
+                <!-- <img src="https://pymstatic.com/8535/conversions/frases-futbol-wide.jpg"> -->
+                @livewire('chart.dashboard')
             </div>
         </div>
     </div>

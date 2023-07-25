@@ -17,6 +17,8 @@ use App\Models\Asistencia;
 use App\Models\Pago;
 use App\Models\Temporada;
 
+use Illuminate\Support\Facades\Storage;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +53,13 @@ Route::middleware([
     Route::get('/inscripciones',Inscripciones::class)->name('inscripciones');
     // Route::get('/tecnicocalendario',function(){return View::make("livewire.tecnico-calendario");})->name('tecnicocalendario');
 });
+
+// Route::get('storage/{filename}', function ($filename) {
+//     $path = storage_path('app/public/' . $filename);
+    
+//     if (!Storage::exists($path)) {
+//         abort(404);
+//     }
+    
+//     return response()->file($path);
+// })->where('filename', '.*');
